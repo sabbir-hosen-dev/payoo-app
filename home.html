@@ -1,11 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payoo Home</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payoo app</title>
+
+    <!-- dasey ui link  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="flex justify-center h-svh items-center relative">
+      <div class="mockup-phone">
+        <div class="camera"></div>
+        <div class="display">
+          <div class="artboard artboard-demo flex justify-evenly phone-1 py-10 p-5">
+
+
+            <div class="stats bg-primary w-full mb-10 text-primary-content">  
+              <div class="stat">
+                <div class="stat-title text-gray-300">Total balance</div>
+                <div class="stat-value flex text-white">$ <div id="balance">400</div></div>
+                <div class="stat-actions">
+                  <button class="btn btn-sm btn-accent" id="add-money-btn">Add money</button>
+                  <button class="btn btn-sm btn-secondary" id="cash-out-btn">Cash Out</button>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="add-money-form" class="input-wrap w-full">
+              <label class="input input-bordered flex w-full items-center gap-2">
+                <input
+                  id="addInput"
+                  type="number"
+                  class="grow"
+                  placeholder="Amount"
+                  required
+                />
+              </label>
+              <br />
+              <label class="input input-bordered flex w-full items-center gap-2">
+                <input
+                  id="addPass"
+                  type="password"
+                  class="grow"
+                  placeholder="Password"
+                  required
+                />
+              </label>
+              <br />
+              
+              <div class="btn-wrap w-full relative">
+                <button id="add-money" class="btn btn-accent w-full">Add Money</button>
+                <div id="message" class="absolute -bottom-14 left-[12%]"> </div>
+              </div>
+            </div>
+
+
+            <div id="cash-out-form" class="input-wrap hidden w-full">
+              <label class="input input-bordered flex w-full items-center gap-2">
+                <input
+                  id="outInput"
+                  type="number"
+                  class="grow"
+                  placeholder="Amount"
+                  required
+                />
+              </label>
+              <br />
+              <label class="input input-bordered flex w-full items-center gap-2">
+                <input
+                  id="outPass"
+                  type="password"
+                  class="grow"
+                  placeholder="Password"
+                  required
+                />
+              </label>
+              <br />
+              
+              <div class="btn-wrap w-full relative">
+                <button id="cash-out" class="btn btn-secondary w-full">Catch Out
+                <div id="message" class="absolute -bottom-14 left-[12%]"> </div>
+              </div>
+            </div>
+
+
+        </div>
+      </div>
+    </main>
+
+    <!-- -- java script link --  -->
+    <script src="js/home.js"></script>
+  </body>
 </html>

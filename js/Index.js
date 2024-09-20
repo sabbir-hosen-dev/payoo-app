@@ -21,11 +21,14 @@ const login = document.getElementById("login");
 
 login.addEventListener("click", function (e) {
   e.preventDefault();
-  const number = document.getElementById("number").value;
-  const password = document.getElementById("password").value;
+  const number = document.getElementById("number");
+  const password = document.getElementById("password");
 
-  if (number == "0" && password == "1234") {
-    
+  if (number.value == "01313530719" && password.value == "1234") {
+    window.location.href = "../home.html";
+
+    number.value = "";
+    password.value = "";
   } else {
     document.getElementById("message").innerHTML = rongMessage;
   }
