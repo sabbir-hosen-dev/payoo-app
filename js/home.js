@@ -15,25 +15,27 @@ const rongMessage = `
                 </div>
 `;
 
-//add money btn click to form hide and add
+//select form show btn
 const addMoneyBtn = document.getElementById("add-money-btn");
-addMoneyBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  const addMoneyForm = document.getElementById("add-money-form");
-  const cashOutForm = document.getElementById("cash-out-form");
-  addMoneyForm.classList.remove("hidden");
-  cashOutForm.classList.add("hidden");
-});
-
-//catch out money btn click to form hide and add
 const cashOutBtn = document.getElementById("cash-out-btn");
-cashOutBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  const addMoneyForm = document.getElementById("add-money-form");
-  const cashOutForm = document.getElementById("cash-out-form");
-  addMoneyForm.classList.add("hidden");
-  cashOutForm.classList.remove("hidden");
-});
+
+// select form
+const addMoneyForm = document.getElementById("add-money-form");
+const cashOutForm = document.getElementById("cash-out-form");
+
+function formShow(value) {
+  console.log(value);
+  if (value) {
+    addMoneyForm.classList.remove("hidden");
+    cashOutForm.classList.add("hidden");
+  } else {
+    addMoneyForm.classList.add("hidden");
+    cashOutForm.classList.remove("hidden");
+  }
+}
+
+addMoneyBtn.addEventListener("click", () => formShow(true));
+cashOutBtn.addEventListener("click", () => formShow(false));
 
 // add money function
 const addMoney = document.getElementById("add-money");
@@ -41,31 +43,67 @@ const addInput = document.getElementById("addInput");
 const addPass = document.getElementById("addPass");
 const message = document.getElementById("message");
 
-
 addMoney.addEventListener("click", function (e) {
   e.preventDefault();
 
-  if (addInput.value == "" ) {
+  if (addInput.value == "") {
     alert("Please Amount input");
+    return;
   }
-  if ( addPass == "") {
+  if (addPass == "") {
     alert("Please passwoud input");
+    return;
   }
 
   if (addPass.value == "1234") {
     const stringBalance = document.getElementById("balance");
     const balance = Number(stringBalance.innerText);
-    let money = balance + Number(addInput.value)
+    let money = balance + Number(addInput.value);
 
     stringBalance.innerText = money;
 
     addInput.value = "";
     addPass.value = "";
-    message.innerHTML = "" 
-  }
-  else{
-    message.innerHTML = rongMessage 
+    message.innerHTML = "";
+  } else {
+    message.innerHTML = rongMessage;
   }
 });
 
+// catch out function
+const outMoney = document.getElementById("cash-out");
+const outInput = document.getElementById("outInput");
+const outPass = document.getElementById("outPass");
+const rongPassMsg = document.getElementById("out-pass-message");
 
+outMoney.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (outInput.value == "") {
+    alert("Please Amount input");
+    return;
+  }
+  if (outPass.value == "") {
+    alert("Please passwoud input");
+    return;
+  }
+
+  if (outPass.value == "1234") {
+    const stringBalance = document.getElementById("balance");
+    const balance = Number(stringBalance.innerText);
+    const inputBalance = Number(outInput.value);
+
+    if (balance - inputBalance < 0) {
+      alert("Please input balid amaoud");
+    } else {
+      stringBalance.innerText = balance - inputBalance;
+    }
+    outInput.value = "";
+    outPass.value = "";
+    rongPassMsg.innerHTML = "";
+
+  } else {
+    console.log("hi")
+    rongPassMsg.innerHTML = rongMessage;
+  }
+});
