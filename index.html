@@ -1,18 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payoo app</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payoo app</title>
 
-  <!-- dasey ui link  -->
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>  
-</head>
-<body>
-  
+    <!-- dasey ui link  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="flex justify-center h-svh items-center relative">
+      <div class="mockup-phone">
+        <div class="camera"></div>
+        <div class="display">
+          <div class="artboard artboard-demo phone-1 p-5">
+            <h4 class="font-bold text-2xl mb-5">Login</h4>
+            <label class="input input-bordered flex w-full items-center gap-2">
+              <input
+                id="number"
+                type="number"
+                class="grow"
+                placeholder="Number"
+                required
+              />
+            </label>
+            <br />
+            <label class="input input-bordered flex w-full items-center gap-2">
+              <input
+                id="password"
+                type="password"
+                class="grow"
+                placeholder="Password"
+                required
+              />
+            </label>
+            <br />
+            
+            <div class="btn-wrap w-full relative">
+              <button id="login" class="btn btn-neutral w-full">Login</button>
+              <div id="message" class="absolute -bottom-14 left-[12%]">
 
-  <!-- -- java script link --  -->
-   <script src="js/Index.js"></script>
-</body>
+                <div role="alert" class="alert alert-error px-4 p-1  text-white "></div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 shrink-0 stroke-current"
+                    fill="none"
+                    viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span >Something Wrong !</span>
+                </div>
+              </div>
+            </div>
+
+            
+
+          </div>
+        </div>
+      </div>
+      <div class="message">
+        
+      </div>
+      <div class="setels absolute top-20">
+        <p class="text-red-300">You can only use this credentials</p>
+        Phone: 01313530719
+        <br />
+        password : 1234
+      </div>
+    </main>
+
+    <!-- -- java script link --  -->
+    <script src="js/Index.js"></script>
+  </body>
 </html>
